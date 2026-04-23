@@ -48,7 +48,7 @@ public VentanaDepart(JFrame f )
 	JPanel p1 = new JPanel();
 	p1.setLayout (new FlowLayout());
 	p1.add(lnum);
-	p1.add(num);p1.add(consulDepart());
+	p1.add(num);p1.add(consulDepart("PRUEBA"));
 	
 	JPanel p2 = new JPanel();
 	p2.setLayout (new FlowLayout());
@@ -63,7 +63,7 @@ public VentanaDepart(JFrame f )
 	JPanel p4 = new JPanel();
 	p4.setLayout (new FlowLayout());
 	c = Color.YELLOW;
-	p4.add(altaDepart());	 p4.add(borraDepart());p4.add(modifDepart());
+	p4.add(altaDepart("PRUEBA"));	 p4.add(borraDepart("PRUEBA"));p4.add(modifDepart("PRUEBA"));
 	p4.setBackground(c);
 	
 	JPanel p5 = new JPanel();
@@ -84,19 +84,19 @@ public VentanaDepart(JFrame f )
 	
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	
-	altaDepart().addActionListener(this);
+	altaDepart("PRUEBA").addActionListener(this);
 	breset.addActionListener(this);
 	fin.addActionListener(this);
-	consulDepart().addActionListener(this);
-	borraDepart().addActionListener(this);
-	modifDepart().addActionListener(this);
+	consulDepart("PRUEBA").addActionListener(this);
+	borraDepart("PRUEBA").addActionListener(this);
+	modifDepart("PRUEBA").addActionListener(this);
 	ver.addActionListener(this);
 }
 
 public void actionPerformed(ActionEvent e) 
 {   int dep, confirm;
 	String departamentoExiste = "DEPARTAMENTO EXISTE.";
-	if (e.getSource() == altaDepart()) { //SE PULSA EL BOTON alta   	
+	if (e.getSource() == altaDepart("PRUEBA")) { //SE PULSA EL BOTON alta   	
 		mensaje.setText(" has pulsado el boton alta");   
 		try {
 	    	  dep=Integer.parseInt(num.getText());
@@ -120,7 +120,7 @@ public void actionPerformed(ActionEvent e)
 	    		 } 
 	    }
 		   
-	if (e.getSource() == consulDepart()) { //SE PULSA EL BOTON  consultar  	
+	if (e.getSource() == consulDepart("PRUEBA")) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
 		try {
 	    	  dep=Integer.parseInt(num.getText());
@@ -141,7 +141,7 @@ public void actionPerformed(ActionEvent e)
 	      
 	    }
 		  
-	if (e.getSource() == borraDepart()) { //SE PULSA EL BOTON  borrar  	
+	if (e.getSource() == borraDepart("PRUEBA")) { //SE PULSA EL BOTON  borrar  	
 		mensaje.setText(" has pulsado el boton Borrar");   
 		try {
 	    	  dep=Integer.parseInt(num.getText());
@@ -170,7 +170,7 @@ public void actionPerformed(ActionEvent e)
 	       catch (IOException ex2) 
 	    	   {mensaje.setText("ERRORRR EN EL FICHERO. Fichero no existe. (BORRAR)");} 
 	    }
-	if (e.getSource() == modifDepart()) { //SE PULSA EL BOTON  modificar  	
+	if (e.getSource() == modifDepart("PRUEBA")) { //SE PULSA EL BOTON  modificar  	
 		mensaje.setText(" has pulsado el boton Modificar.");   
 		try {
 	    	  dep=Integer.parseInt(num.getText());
@@ -217,19 +217,19 @@ public void actionPerformed(ActionEvent e)
 	}
 }
 
-private JButton modifDepart() {
+private JButton modifDepart(String palabra) {
 	return modif;
 }
 
-private JButton borraDepart() {
+private JButton borraDepart(String palabra) {
 	return borra;
 }
 
-private JButton consulDepart() {
+private JButton consulDepart(String palabra) {
 	return consu;
 }
 
-private JButton altaDepart() {
+private JButton altaDepart(String palabra) {
 	return balta;
 }
 
