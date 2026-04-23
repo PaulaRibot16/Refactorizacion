@@ -20,6 +20,5 @@ public class FicheroAleatorioVentana {
 		v.setVisible(true);
 	   
 	}//fin main
-
 	
 }//fin class
