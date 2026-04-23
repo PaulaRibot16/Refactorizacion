@@ -11,7 +11,7 @@ import java.io.RandomAccessFile;
 
 import javax.swing.*;
 
-public class VentanaDepart extends JFrame implements ActionListener  {
+public class VentanaDepart extends SuperClaseDepart implements ActionListener, InterfaceVentanaDepart  {
 	
 private static final long serialVersionUID = 1L;
 JTextField num=new JTextField(10);
@@ -38,7 +38,8 @@ Color c; //para poner colores
 
 public VentanaDepart(JFrame f )
 { 	
-    setTitle("GESTI�N DE DEPARTAMENTOS.");
+    super();
+	setTitle("GESTI�N DE DEPARTAMENTOS.");
     
     JPanel p0 = new JPanel();
 	c = Color.CYAN;
@@ -217,19 +218,23 @@ public void actionPerformed(ActionEvent e)
 	}
 }
 
-private JButton modifDepart(String palabra) {
+@Override
+public JButton modifDepart(String palabra) {
 	return modif;
 }
 
-private JButton borraDepart(String palabra) {
+@Override
+public JButton borraDepart(String palabra) {
 	return borra;
 }
 
-private JButton consulDepart(String palabra) {
+@Override
+public JButton consulDepart(String palabra) {
 	return consu;
 }
 
-private JButton altaDepart(String palabra) {
+@Override
+public JButton altaDepart(String palabra) {
 	return balta;
 }
 
@@ -290,37 +295,6 @@ boolean consultar(int dep) throws IOException
 	    return false;
 	  } 
 } // fin consultar
-void visualiza(int dep) 
-{	    String nom="",loca=""; 
-		long pos; int depa;
-		File fichero = new File("AleatorioDep.dat");
-		try {
-		RandomAccessFile file = new RandomAccessFile(fichero, "r");
-        // Calculo del reg a leer
-		pos=44 * (dep-1);
-	    file.seek(pos); 
-	    depa=file.readInt();   
-	    System.out.println("Depart leido:" + depa);   
-	    char nom1[]= new char[10], aux,  loc1[]= new char[10];
-		for (int i=0;i<10;i++) 
-		{   aux=file.readChar();
-			nom1[i]=aux;
-		}
-		for (int i=0;i<10;i++) 
-		{   aux=file.readChar();
-			loc1[i]=aux;
-		}
-		nom=new String (nom1);
-		loca=new String (loc1);
-	    System.out.println("DEP: " + dep + ", Nombre: "+  nom + ", Localidad: "+ loca);  
-	    nombre.setText(nom);
-        loc.setText(loca);
-	    file.close(); 
-		}catch (IOException e1) {
-			  System.out.println("ERRROR AL LEEERRRRRR AleatorioDep.dat");    
-			e1.printStackTrace();
-		}	
-} // fin visualiza
 void borrar(int dep) 
 {	    // con borrar ponemos a 0 el dep que se quiere borrar
 	    // y a blancos el nombre y la localidad
@@ -376,29 +350,4 @@ void modificar(int dep)
 			e1.printStackTrace();
 		}	
 } // fin modificar
-void grabar(int dep, String nom, String loc) 
-{	 
-		long pos; StringBuffer buffer = null;
-		File fichero = new File("AleatorioDep.dat");
-		try {
-		RandomAccessFile file = new RandomAccessFile(fichero, "rw");
-        // Calculo del reg a leer
-        pos=44 * (dep-1);
-        //if (file.length()==0) return false; // si est� vac�o
-        
-	    file.seek(pos); 
-	    file.writeInt(dep);       
-	    buffer = new StringBuffer( nom );      
-	    buffer.setLength(10); 
-	    file.writeChars(buffer.toString());//insertar nombre
-	    buffer = new StringBuffer( loc );      
-	    buffer.setLength(10); 
-	    file.writeChars(buffer.toString());//insertar loc
-	    file.close(); 
-	    System.out.println(" GRABADOOO el "+dep);  
-		}catch (IOException e1) {
-		   System.out.println("ERRROR AL grabarr AleatorioDep.dat");    
-			e1.printStackTrace();
-		}	
-} // fin grabar
 }//fin clase
