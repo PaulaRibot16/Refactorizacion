@@ -11,7 +11,7 @@ import java.io.RandomAccessFile;
 
 import javax.swing.*;
 
-public class VentanaDepart extends JFrame implements ActionListener  {
+public class VentanaDepart extends JFrame implements ActionListener, InterfaceVentanaDepart  {
 	
 private static final long serialVersionUID = 1L;
 JTextField num=new JTextField(10);
@@ -121,7 +121,8 @@ public void actionPerformed(ActionEvent e)
 	}
 }
 
-private void modifdepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
+@Override
+public void modifdepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
 	int dep;
 	int confirm;
 	if (e.getSource() == modif) { //SE PULSA EL BOTON  modificar  	
@@ -153,7 +154,8 @@ private void modifdepart(ActionEvent e, String departamentoExiste, String PRUEBA
 	    }
 }
 
-private void borrardepart(ActionEvent e, String departamentoExiste, String PREUBA) {
+@Override
+public void borrardepart(ActionEvent e, String departamentoExiste, String PREUBA) {
 	int dep;
 	int confirm;
 	if (e.getSource() == borra) { //SE PULSA EL BOTON  borrar  	
@@ -187,7 +189,8 @@ private void borrardepart(ActionEvent e, String departamentoExiste, String PREUB
 	    }
 }
 
-private void consuldepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
+@Override
+public void consuldepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
 	int dep;
 	if (e.getSource() == consu) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
@@ -211,7 +214,8 @@ private void consuldepart(ActionEvent e, String departamentoExiste, String PRUEB
 	    }
 }
 
-private void altadepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
+@Override
+public void altadepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
 	int dep;
 	if (e.getSource() == balta) { //SE PULSA EL BOTON alta   	
 		mensaje.setText(" has pulsado el boton alta");   
@@ -244,9 +248,9 @@ public  void verporconsola() throws IOException {
   RandomAccessFile file = new RandomAccessFile(fichero, "r");
   char cad[] = new char[10], aux; 
   
-  //claseAnidada ej = new claseAnidada();
-  //ej.entrada();
-  //System.out.println("Llamo a Salida: " + ej.salida(10));
+  claseAnidada ej = new claseAnidada();
+  ej.entrada();
+  System.out.println("Llamo a Salida: " + ej.salida(10));
   
   if (file.length()>0 ){
 	pos=0;  //para situarnos al principio
