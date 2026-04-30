@@ -21,5 +21,8 @@ public class FicheroAleatorioVentana {
 	   
 	}//fin main
 
+		
+
+
 	
 }//fin class

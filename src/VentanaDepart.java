@@ -243,6 +243,11 @@ public  void verporconsola() throws IOException {
   File fichero = new File("AleatorioDep.dat");
   RandomAccessFile file = new RandomAccessFile(fichero, "r");
   char cad[] = new char[10], aux; 
+  
+  //claseAnidada ej = new claseAnidada();
+  //ej.entrada();
+  //System.out.println("Llamo a Salida: " + ej.salida(10));
+  
   if (file.length()>0 ){
 	pos=0;  //para situarnos al principio
 	System.out.println(" ------------------------------------------");  
