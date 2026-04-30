@@ -95,12 +95,12 @@ public VentanaDepart(JFrame f )
 
 public void actionPerformed(ActionEvent e) 
 {   String departamentoExiste = "DEPARTAMENTO EXISTE.";
-	altadepart(e, departamentoExiste);
+	altadepart(e, departamentoExiste, PRUEBA);
 		   
-	consuldepart(e, departamentoExiste);
+	consuldepart(e, departamentoExiste, PRUEBA);
 		  
-	borrardepart(e, departamentoExiste);
-	modifdepart(e, departamentoExiste);
+	borrardepart(e, departamentoExiste, PRUEBA);
+	modifdepart(e, departamentoExiste, PRUEBA);
 	if (e.getSource() == fin) { //SE PULSA EL BOTON salir 	
 		 System.exit(0);	
 		 //dispose();   	
@@ -121,7 +121,7 @@ public void actionPerformed(ActionEvent e)
 	}
 }
 
-private void modifdepart(ActionEvent e, String departamentoExiste) {
+private void modifdepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
 	int dep;
 	int confirm;
 	if (e.getSource() == modif) { //SE PULSA EL BOTON  modificar  	
@@ -153,7 +153,7 @@ private void modifdepart(ActionEvent e, String departamentoExiste) {
 	    }
 }
 
-private void borrardepart(ActionEvent e, String departamentoExiste) {
+private void borrardepart(ActionEvent e, String departamentoExiste, String PREUBA) {
 	int dep;
 	int confirm;
 	if (e.getSource() == borra) { //SE PULSA EL BOTON  borrar  	
@@ -187,7 +187,7 @@ private void borrardepart(ActionEvent e, String departamentoExiste) {
 	    }
 }
 
-private void consuldepart(ActionEvent e, String departamentoExiste) {
+private void consuldepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
 	int dep;
 	if (e.getSource() == consu) { //SE PULSA EL BOTON  consultar  	
 		mensaje.setText(" has pulsado el boton alta");   
@@ -211,7 +211,7 @@ private void consuldepart(ActionEvent e, String departamentoExiste) {
 	    }
 }
 
-private void altadepart(ActionEvent e, String departamentoExiste) {
+private void altadepart(ActionEvent e, String departamentoExiste, String PRUEBA) {
 	int dep;
 	if (e.getSource() == balta) { //SE PULSA EL BOTON alta   	
 		mensaje.setText(" has pulsado el boton alta");   
