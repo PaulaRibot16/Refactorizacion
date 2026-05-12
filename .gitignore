@@ -1,0 +1,12 @@
+# Carpetas de compilación (binarios)
+bin/
+contenedor/
+
+# Archivos compilados sueltos
+*.class
+
+# Archivos de configuración de Eclipse (opcional pero recomendado)
+.settings/
+.metadata/
+.project
+.classpath
