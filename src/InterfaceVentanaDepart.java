@@ -1,13 +1,12 @@
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 
 public interface InterfaceVentanaDepart {
 
-	JButton modifDepart(String palabra);
-
-	JButton borraDepart(String palabra);
-
-	JButton consulDepart(String palabra);
-
-	JButton altaDepart(String palabra);
-
+    void modifdepart(ActionEvent e, String departamentoExiste, String PRUEBA);
+    
+    void borrardepart(ActionEvent e, String departamentoExiste, String PRUEBA);
+    
+    void consuldepart(ActionEvent e, String departamentoExiste, String PRUEBA);
+    
+    void altadepart(ActionEvent e, String departamentoExiste, String PRUEBA);
 }
